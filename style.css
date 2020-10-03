@@ -1,0 +1,220 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #101820ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Bree Serif', serif;
+}
+section:before{
+    content:'' ;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fc766aff;
+    clip-path: polygon(65% 0, 100% 0, 100% 100%, 52% 100%);
+    animation: fade-in 0.5s ease-in forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+}
+section .content{
+    position: relative;
+    padding: 100px 50px 100px 150px;
+    box-sizing: border-box;
+    animation: left-in 0.5s ease-in forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+section .content h2{
+    color: #fff;
+    font-size: 3em;
+    font-weight: 800;
+}
+section .content p{
+    font-size: 1.2em;
+    color: #fff;
+}
+section .content a{
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 20px;
+    background-color: #fc766aff;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: .95em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 5px 5px;
+    transition: 0.4s;
+
+}
+section .content a:hover{
+    border-radius: 15px 15px;
+    background-color: rgb(245, 93, 79);
+}
+section .imgbox{
+    position: relative;
+    padding-right: 100px;
+}
+section .imgbox img{
+    max-width: 500px;
+    animation: fade-in 0.5s ease-in forwards;
+    animation-delay: 2s;
+    opacity: 0;
+}
+.sci{
+    position: absolute;
+    bottom: 75px;
+    left: 150px;
+    display: flex;
+    animation: left-in 0.5s ease-in forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+.sci li{
+    list-style: none;
+}
+.sci li a{
+    text-decoration: none;
+    color: #999;
+    margin-right: 30px;
+    font-size: 1em;
+    transition: 0.3s;
+}
+.sci li a:hover{
+    color: #fff;
+}
+.nav{
+    position: absolute;
+    top: 75px;
+    left: 150px;
+    display: flex;
+    border-left: 4px solid #fc766aff;
+    padding-left: 20px;
+    animation: left-in 0.5s ease-in forwards;
+    animation-delay: 0s;
+    opacity: 0;
+}
+.nav li{
+    list-style: none;
+}
+.nav li a{
+    text-decoration: none;
+    color: #999;
+    margin-right: 30px;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: 0.3s;
+}
+.nav li a.active,
+.nav li a:hover{
+    color: #fc766aff;
+}
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes left-in{
+    0%{
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@media (max-width: 991px){
+    .menuicon{
+        position: fixed;
+        top: 40px;
+        right: 40px;
+        width: 30px;
+        height: 30px;
+        background-image: url(menu.png);
+        filter: invert(1);
+        background-size: 30px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        z-index: 1000;
+    }
+    .menuicon.active{
+        background-image: url(close.png);
+        filter: invert(1);
+        background-size: 30px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        z-index: 1000;
+    }
+    .nav{
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .95);
+        flex-direction: column;
+        z-index: 11;
+        border: none;
+        padding: 50px;
+        transition: 0.5s;
+    }
+    .nav.active{
+        left: 0;
+    }
+    .nav li{
+        margin: 5px 0;
+    }
+    section {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+    section:before {
+        clip-path: polygon(0 0, 100% 0, 100% 40%, 0 47%);
+    }
+    section .content {
+        padding: 55px;
+        margin-bottom: 30px;
+    }
+    section .content h2 {
+        font-size: 1.7em;
+    }
+    section .content p {
+        font-size: 1em;
+    }
+    section .content a {
+        font-size: 0.8em;
+        padding: 12px;  
+    }
+    section .imgbox {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 0;
+        margin-top: 20px;
+    }
+    section .imgbox img {
+        max-width: 300px;
+    }
+    .sci {
+        left: 50px;
+        bottom: 30px;
+    }
+}
